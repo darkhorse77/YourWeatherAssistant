@@ -11,7 +11,14 @@ namespace YourWeatherAssistant
         {
             InitializeComponent();
 
-            MainPage = new WelcomePage();
+            //MainPage = new NavigationPage(new WelcomePage());
+
+            Page mp = new NavigationPage(new WelcomePage());
+
+            NavigationPage.SetHasBackButton(mp, false);
+            NavigationPage.SetHasNavigationBar(mp, false);
+
+            MainPage = mp;
         }
 
         protected override void OnStart()
