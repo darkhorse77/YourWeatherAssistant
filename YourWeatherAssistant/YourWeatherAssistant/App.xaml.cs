@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -10,8 +9,6 @@ namespace YourWeatherAssistant
         public App()
         {
             InitializeComponent();
-
-            //MainPage = new NavigationPage(new WelcomePage());
 
             Page mp = new NavigationPage(new WelcomePage());
 

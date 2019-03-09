@@ -4,11 +4,6 @@
              xmlns:local="clr-namespace:YourWeatherAssistant"
              x:Class="YourWeatherAssistant.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    
 
 </ContentPage>

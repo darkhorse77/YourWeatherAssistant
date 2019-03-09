@@ -1,24 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace YourWeatherAssistant
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class WelcomePage : ContentPage
 	{
 		public WelcomePage ()
 		{
 			InitializeComponent ();
-
-            GetWeather gw = new GetWeather();
-
-            gw.GetCurrentWeather();
 		}
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -28,7 +19,21 @@ namespace YourWeatherAssistant
             NavigationPage.SetHasBackButton(mp, false);
             NavigationPage.SetHasNavigationBar(mp, false);
 
-            await Navigation.PushAsync(mp, true);
+            button.Clicked -= Button_Clicked;
+
+            button.IsEnabled = false;
+            System.Threading.ThreadPool.QueueUserWorkItem(o =>
+            {
+                System.Threading.Thread.Sleep(500);
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    button.IsEnabled = true;
+                    button.Clicked += Button_Clicked;
+                });
+            });
+
+            await Navigation.PushAsync(mp, false);
         }
     }
 }
