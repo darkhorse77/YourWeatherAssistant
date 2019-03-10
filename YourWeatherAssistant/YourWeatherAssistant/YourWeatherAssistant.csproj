@@ -15,8 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="WelcomePage.xaml">
+    <EmbeddedResource Update="View\WelcomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 </Project>
