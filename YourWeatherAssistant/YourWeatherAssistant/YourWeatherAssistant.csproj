@@ -19,8 +19,4 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
 </Project>
