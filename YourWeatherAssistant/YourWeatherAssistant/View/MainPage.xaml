@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:YourWeatherAssistant"
+             x:Class="YourWeatherAssistant.MainPage">
+
+    <ContentPage x:Name="page1" Title="Сейчас" Padding="10, 20, 10, 10">
+        
+    </ContentPage>
+
+    <ContentPage x:Name="page2" Title="Завтра">
+
+    </ContentPage>
+
+</TabbedPage>
