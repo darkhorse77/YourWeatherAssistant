@@ -7,21 +7,22 @@ namespace YourWeatherAssistant
 {
     class GetWeather
     {
-        public string city = "Лабытанги";
+        public string City { get; set; } = "Лабытанги";
+        private double Lat { get; set; }
+        private double Lon { get; set; }
+
         private ServerResponse response; // готовый json
-        private double lat;
-        private double lon;
 
         public GetWeather(double lat, double lon)
         {
-            this.lat = lat;
-            this.lon = lon;
+            this.Lat = lat;
+            this.Lon = lon;
             response = GetJson();
         }
 
         public ServerResponse GetJson()
         {
-            string url =  @"https://api.weather.yandex.ru/v1/forecast?lat=" + lat + "&lon=" + lon + "&extra=true";
+            string url =  @"https://api.weather.yandex.ru/v1/forecast?lat=" + Lat + "&lon=" + Lon + "&extra=true";
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
             request.Headers.Add("X-Yandex-API-Key: 75f2d8b2-7b19-4f1a-89ee-badecd60a37c");
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -37,35 +38,26 @@ namespace YourWeatherAssistant
             }     
         }
 
-        public int GetTemp()
-        {
-            return int.Parse(response.fact.temp);
-        }
+        public int GetTemp() => int.Parse(response.Fact.Temp);
 
-        public string GetCondition()
-        {
-            return response.fact.condition;
-        }
+        public string GetCondition() => response.Fact.Condition;
 
-        public int GetPrecType()
-        {
-            return int.Parse(response.fact.prec_type);
-        }
-    }
-
-    #pragma warning disable 0649
+        public int GetPrecType() => int.Parse(response.Fact.PrecType);
+    } 
 
     class ServerResponse 
     {
-        public Fact fact; 
+        public Fact Fact { get; set; }
     }
 
     class Fact 
     {
-        public string temp; // температура
-        public string condition; // погода (снег, дождь и тд)
-        public string prec_type; // тип осадков 
+        public string Temp { get; set; } // температура
+        public string Condition { get; set; } // погода (снег, дождь и тд)
+        public string PrecType { get; set; } // тип осадков 
     }
 
-    #pragma warning restore 0649
+
+    //#pragma warning disable 0649
+    //#pragma warning restore 0649
 }

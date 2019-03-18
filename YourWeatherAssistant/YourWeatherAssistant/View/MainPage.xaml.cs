@@ -42,7 +42,7 @@ namespace YourWeatherAssistant
                     break;
             }
 
-            Label label3 = CreateLabel(gw.city, 10, TextAlignment.End, TextAlignment.End);
+            Label label3 = CreateLabel(gw.City, 10, TextAlignment.End, TextAlignment.End);
 
             StackLayout stackLayout1 = new StackLayout()
             {
