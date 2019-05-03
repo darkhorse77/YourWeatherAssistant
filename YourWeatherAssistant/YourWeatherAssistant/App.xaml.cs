@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YourWeatherAssistant.View;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace YourWeatherAssistant
@@ -10,12 +11,7 @@ namespace YourWeatherAssistant
         {
             InitializeComponent();
 
-            Page mp = new NavigationPage(new WelcomePage());
-
-            NavigationPage.SetHasBackButton(mp, false);
-            NavigationPage.SetHasNavigationBar(mp, false);
-
-            MainPage = mp;
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

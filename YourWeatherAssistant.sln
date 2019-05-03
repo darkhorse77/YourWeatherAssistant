@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourWeatherAssistant.Android", "YourWeatherAssistant\YourWeatherAssistant.Android\YourWeatherAssistant.Android.csproj", "{3D3513DC-AFDB-4400-B7EE-4F83959D10DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourWeatherAssistant", "YourWeatherAssistant\YourWeatherAssistant\YourWeatherAssistant.csproj", "{299257FC-A6E7-41C0-BFF0-EEE00B9240A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourWeatherAssistant", "YourWeatherAssistant\YourWeatherAssistant\YourWeatherAssistant.csproj", "{299257FC-A6E7-41C0-BFF0-EEE00B9240A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debug", "Debug\Debug.csproj", "{69C148FF-C842-4BA1-94F0-78676EA7E868}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{299257FC-A6E7-41C0-BFF0-EEE00B9240A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{299257FC-A6E7-41C0-BFF0-EEE00B9240A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{299257FC-A6E7-41C0-BFF0-EEE00B9240A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69C148FF-C842-4BA1-94F0-78676EA7E868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C148FF-C842-4BA1-94F0-78676EA7E868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C148FF-C842-4BA1-94F0-78676EA7E868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C148FF-C842-4BA1-94F0-78676EA7E868}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,63 +1,68 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
+using YourWeatherAssistant.Model;
 
 namespace YourWeatherAssistant
 {
     class GetWeather
     {
-        public string City { get; set; } = "Лабытанги";
-        private double Lat { get; set; }
-        private double Lon { get; set; }
-
-        private ServerResponse response; // готовый json
-
-        public GetWeather(double lat, double lon)
+        public static ServerResponse GetJson()
         {
-            this.Lat = lat;
-            this.Lon = lon;
-            response = GetJson();
-        }
-
-        public ServerResponse GetJson()
-        {
-            string url =  @"https://api.weather.yandex.ru/v1/forecast?lat=" + Lat + "&lon=" + Lon + "&extra=true";
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
-            request.Headers.Add("X-Yandex-API-Key: 75f2d8b2-7b19-4f1a-89ee-badecd60a37c");
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            using (Stream stream = response.GetResponseStream())
+            try
             {
-                StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                String responseString = reader.ReadToEnd();
+                string url = @"http://apidev.accuweather.com/currentconditions/v1/291507.json?language=ru&apikey=hoArfRosT1215";
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-                ServerResponse weather = (ServerResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(responseString, typeof(ServerResponse));
+                using (Stream stream = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                    String responseString = reader.ReadToEnd();
 
-                return weather;
-            }     
+                    List<ServerResponse> weather = JsonConvert.DeserializeObject<List<ServerResponse>>(responseString);
+
+                    return weather.First();
+                }
+            }
+            catch 
+            {
+                return null;
+            }
         }
-
-        public int GetTemp() => int.Parse(response.Fact.Temp);
-
-        public string GetCondition() => response.Fact.Condition;
-
-        public int GetPrecType() => int.Parse(response.Fact.PrecType);
-    } 
-
-    class ServerResponse 
-    {
-        public Fact Fact { get; set; }
     }
 
-    class Fact 
-    {
-        public string Temp { get; set; } // температура
-        public string Condition { get; set; } // погода (снег, дождь и тд)
-        public string PrecType { get; set; } // тип осадков 
-    }
-
-
-    //#pragma warning disable 0649
-    //#pragma warning restore 0649
+    // API response sample:
+    //[
+    //    {
+    //    "LocalObservationDateTime":"2019-05-02T16:10:00+05:00",
+    //    "EpochTime":1556795400,
+    //    "WeatherText":"Light snow",
+    //    "WeatherIcon":19,
+    //    "HasPrecipitation":true,
+    //    "PrecipitationType":"Snow",
+    //    "IsDayTime":true,
+    //    "Temperature":
+    //     {
+    //         "Metric":
+    //         {
+    //             "Value":-3.0,
+    //             "Unit":"C",
+    //             "UnitType":17
+    //         },
+    //         "Imperial":
+    //         {
+    //              "Value":27.0,
+    //              "Unit":"F",
+    //              "UnitType":18
+    //          }
+    //      },
+    //    "MobileLink":"http://m.accuweather.com/en/ru/labytnangi/291507/current-weather/291507?lang=en-us",
+    //    "Link":"http://www.accuweather.com/en/ru/labytnangi/291507/current-weather/291507?lang=en-us"
+    //    }
+    //]
 }
