@@ -1,6 +1,6 @@
 ﻿namespace YourWeatherAssistant.Model
 {
-    class ServerResponse
+    class ConditionResponse
     {
         public string WeatherText { get; set; }
         public bool HasPrecipitation { get; set; }

@@ -3,19 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YourWeatherAssistant.View.MainPage">
     <ContentPage.Content>
-        <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="*" />
-              <ColumnDefinition Width="*" />
-              <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="*" />
-              <RowDefinition Height="*" />
-              <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="#6DAAD9">
+            <Label Text="{Binding CurrentCity}" FontSize="10" TextColor="White" HorizontalOptions="Center" Margin="0, 30, 0, 10"/>
+            <Label Text="{Binding Region}" FontSize="8" TextColor="White" HorizontalOptions="Center" Margin="0, 0, 0, 100"/>
 
-            <Label Text="{Binding Temperature}" FontSize="20" Grid.Row="1" Grid.Column="1"/>
-        </Grid>
+            <Label Text="{Binding Temperature}" FontSize="38" TextColor="White" HorizontalOptions="Center"/>
+            <Label Text="{Binding WeatherText}" FontSize="38" TextColor="White" HorizontalOptions="Center"/>
+            <!--<Label Text="{Binding PrecipitationType}" FontSize="18" TextColor="White" HorizontalOptions="Center"/>-->
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
