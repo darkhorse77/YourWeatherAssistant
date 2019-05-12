@@ -11,7 +11,16 @@ namespace YourWeatherAssistant
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            InternetConnection connection = new InternetConnection();
+
+            if (connection.CheckConnection())
+            {
+                MainPage = new MainPage();
+            }
+            else
+            {
+                MainPage = new ErrorPage();
+            }
         }
 
         protected override void OnStart()

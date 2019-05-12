@@ -8,7 +8,7 @@
             <Label Text="{Binding Region}" FontSize="8" TextColor="White" HorizontalOptions="Center" Margin="0, 0, 0, 100"/>
 
             <Label Text="{Binding Temperature}" FontSize="38" TextColor="White" HorizontalOptions="Center"/>
-            <Label Text="{Binding WeatherText}" FontSize="38" TextColor="White" HorizontalOptions="Center"/>
+            <Label Text="{Binding WeatherText}" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
             <!--<Label Text="{Binding PrecipitationType}" FontSize="18" TextColor="White" HorizontalOptions="Center"/>-->
         </StackLayout>
     </ContentPage.Content>
